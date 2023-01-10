@@ -126,12 +126,14 @@ form {
 
 textarea {
   width: 100%;
-  color: rgb(215, 65, 65);
+
+  color: rgb(208, 67, 67);
+  font-weight: medium;
   font-size: 18px;
 
   padding: 1rem;
   background: transparent;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   outline: none;
 }
