@@ -10,11 +10,9 @@ function loader(element) {
     element.textContent = ''
 
     loadInterval = setInterval(() => {
-        // Update the text content of the loading indicator
         element.textContent += '.';
 
-        // If the loading indicator has reached three dots, reset it
-        if (element.textContext === '.....') {
+        if (element.textContent === '.....') {
             element.textContent = '';
         }
     }, 300);
@@ -68,7 +66,6 @@ const handleSubmit = async (e) => {
   // user's chatstripe
   chatContainer.innerHTML += chatStripe(false, data.get('prompt'));
 
-  // to clear the textarea input 
   form.reset()
 
   // bot's chatstripe
@@ -114,3 +111,6 @@ form.addEventListener('keyup', (e) => {
     handleSubmit(e);
   }
 })
+
+
+

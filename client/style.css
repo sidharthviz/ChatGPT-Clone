@@ -127,13 +127,12 @@ form {
 textarea {
   width: 100%;
 
-  color: rgb(208, 67, 67);
-  font-weight: medium;
+  color: rgb(213, 83, 83);
   font-size: 18px;
 
-  padding: 1.5rem;
+  padding: 10px;
   background: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   outline: none;
 }
