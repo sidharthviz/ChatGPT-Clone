@@ -14,7 +14,7 @@ function loader(element) {
         element.textContent += '.';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '.....') {
+        if (element.textContext === '.....') {
             element.textContent = '';
         }
     }, 300);
@@ -81,6 +81,31 @@ const handleSubmit = async (e) => {
 
   const messageDiv = document.getElementById(uniqueId);
   loader(messageDiv);
+
+  const response = await fetch('http://localhost:5000', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        prompt: data.get('prompt')
+    })
+  })
+  clearInterval(loadInterval);
+  messageDiv.innerHTML = '';
+
+  if(response.ok) {
+    const data = await response.json();
+    const parsedData = data.bot.trim();
+
+    typeText(messageDiv, parsedData);
+  } else {
+    const err = await response.text();
+
+    messageDiv.innerHTML = "Something's Went Wrong";
+
+    alert(err);
+  }
 }
 
 form.addEventListener('submit', handleSubmit);
